@@ -12,8 +12,7 @@
 - <a href= "https://github.com/PreetikaKuls/Insight-MapMyCab/blob/master/README.md#instructions-to-run-this-pipeline">Instructions to Run this Pipeline</a>
 
 
-#Introduction
-This is a data engineering project at Insight Data Science. There are two goals that this project aims to accomplish:
+ There are two goals that this project aims to accomplish:
 - Provide an API for data scientists and cab dispatchers, for analyzing long term trends in cab behavior w.r.t metrics such as average pickups, dropoffs, occupancy, miles travelled etc.
 - Enable a framework for real-time monitoring of cab locations, so that a user can know the unoccupied cabs across a city and zoom in on a specific neighborhood to spot and catch available cabs nearest to them.
 
@@ -56,8 +55,6 @@ Following metrics are computed via a MapReduce operation on the raw dataset (MrJ
 The resulting table is aggregated using Hive to enable batch queries such as:
 - Time of day profile of pickups, dropoffs, miles travelled 
 - Day of the week profile of metrics 
-- Related files: <a href= "https://github.com/PreetikaKuls/Insight-MapMyCab/blob/master/hive/create_aggregates.q">create_aggregates.q</a>
-- Some additional metrics calculated via hive: Pickup and Dropoff events
 
 The windowing operation in Hive is used for translating the continous time series data (by cab) into tables representing trips and associated durations.  
 - The information pertaining to individual trips is extracted via filtering on pickup and dropoff events (**1 million trips**)
