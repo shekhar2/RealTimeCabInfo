@@ -85,40 +85,6 @@ The realtime schema represents a city for each row (since there is only one city
 - The incoming data is filtered in real-time (simulated) based on occupancy to show available cabs. The storm topology comprises of one spout (kafka integrated) and one bolt. The bolt operates on a tick interval of 5 sec to collect data for 5 seconds before pushing it to HBase.
 - Related files: <a href= "https://github.com/PreetikaKuls/Insight-MapMyCab/blob/master/Storm/cab_topology/cab_topology/stormBolt.py">stormBolt.py</a>, <a href= "https://github.com/PreetikaKuls/Insight-MapMyCab/blob/master/Storm/cab_topology/cab_topology.yaml">cab_topology.yaml</a>
 
-#Live Demo:
-A Live Demo of the project is available here: www.mapmycab.org
-A snap shot of the map with cabs:
-
-
-<img src="https://github.com/PreetikaKuls/Insight-MapMyCab/blob/master/images/realtime.png" alt="alt text" width="500" height="300">
-
-#Presentation Deck
-The presentation slides are available here:
-<a href= "http://54.183.182.89:5000/aboutme">www.mapmycab.org/aboutme</a>
-
-#Instructions to Run this Pipeline
-
-Install python packages:
-```sudo pip install kafka-python happybase pyleus mrjob```
-
-Run the Kafka producer / consumer:
-```python kafka/producer.py```
-```python kafka/kafka_consumer.py```
-
-Run MrJob:
-```python mr_hourly_job.py -r hadoop --hadoop-bin /usr/bin/hadoop hdfs:///<input file path> -o <output file path>```
-
-Run Hive Scripts
-```hive -f <filename>```
-
-Build storm topology:
-```pyleus build cab_topology.yaml```
-
-Submit pyleus topology:
-```pyleus submit -n 54.153.51.200 cab_topology.jar```
-
-
-
 
 
 
